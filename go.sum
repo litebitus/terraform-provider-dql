@@ -148,6 +148,8 @@ github.com/litebitus/dql-compiler v0.0.0-20261031010330-7156e487e0ff h1:v7wAUFnM
 github.com/litebitus/dql-compiler v0.0.0-20261031010330-7156e487e0ff/go.mod h1:9C2AkFNj4QKG5Urfss6nIWiSdCz9Wv/1CtnnCkcM8NU=
 github.com/litebitus/dql-compiler v0.0.0-20261031013309-a19507d41ee5 h1:MOj83kllhzsQSW6u3X9QJzeT9zS+CEBshnKZT5c6Vj0=
 github.com/litebitus/dql-compiler v0.0.0-20261031013309-a19507d41ee5/go.mod h1:9C2AkFNj4QKG5Urfss6nIWiSdCz9Wv/1CtnnCkcM8NU=
+github.com/litebitus/dql-compiler v0.0.0-20261031024416-a66cb75ec4d1 h1:0E9t7jPEJ+bVcT1C60zZQjIMAK04839cFZGrqkY4IsU=
+github.com/litebitus/dql-compiler v0.0.0-20261031024416-a66cb75ec4d1/go.mod h1:9C2AkFNj4QKG5Urfss6nIWiSdCz9Wv/1CtnnCkcM8NU=
 github.com/mattn/go-colorable v0.1.9/go.mod h1:u6P/XSegPjTcexA+o6vUJrdnUu04hMope9wVRipJSqc=
 github.com/mattn/go-colorable v0.1.12/go.mod h1:u5H1YNBxpqRaxsYJYSkiCWKzEfiAb1Gb520KVy5xxl4=
 github.com/mattn/go-colorable v0.1.14 h1:9A9LHSqF/7dyVVX6g0U9cwm9pG3kP9gSzcuIPHPsaIE=
