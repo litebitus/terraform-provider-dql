@@ -1,60 +1,14 @@
 name: Snapshot
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
-  group: snapshot-${{ github.event_name }}
-  cancel-in-progress: ${{ github.event_name == 'push' }}
+  group: snapshot
+  cancel-in-progress: false
 
 jobs:
-  artifact:
-    if: ${{ github.event_name == 'push' }}
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7.0.1
-        with:
-          fetch-depth: 0
-
-      - name: Set up Go
-        uses: actions/setup-go@v7.0.0
-        with:
-          go-version-file: go.mod
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v4.0.1
-        with:
-          terraform_version: 1.17.1
-          terraform_wrapper: false
-
-      - name: Test
-        run: make test
-
-      - name: Build the snapshot
-        uses: goreleaser/goreleaser-action@v7.3.0
-        with:
-          distribution: goreleaser
-          version: v2.19.0
-          args: release --snapshot --clean --skip=sign
-
-      - name: Upload the snapshot
-        uses: actions/upload-artifact@v7.0.2
-        with:
-          name: terraform-provider-dql-snapshot
-          path: |
-            dist/*.zip
-            dist/*_SHA256SUMS
-          retention-days: 30
-          if-no-files-found: error
-
   pre-release:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
