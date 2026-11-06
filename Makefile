@@ -23,4 +23,11 @@ test:
 	go vet ./...
 	@unformatted="$$(gofmt -l .)"; [ -z "$$unformatted" ] || { echo "not gofmt-formatted:"; echo "$$unformatted"; exit 1; }
 	go test ./...
-	go tool tfplugindocs validate --provider-name dql
+	@if validated="$$(go tool tfplugindocs validate --provider-name dql 2>&1)"; then \
+		echo "tfplugindocs validate: the Registry pages match the provider"; \
+	else \
+		printf '%s\n' "$$validated" | awk '/\[DEBUG\]/ { next } /^Error/ { failed = 1 } \
+			{ if (failed) printf "\033[31m%s\033[0m\n", $$0; else print }'; \
+		printf '\033[31m%s\033[0m\n' "tfplugindocs validate: failed, the Registry pages do not match the provider"; \
+		exit 1; \
+	fi
