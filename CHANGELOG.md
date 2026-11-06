@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.1.0 — 2026-11-06
+
 - Functions
   - `promql`: compiles a DQL query into a PromQL expression.
   - `opensearch`: compiles a DQL query into an OpenSearch search request body.
